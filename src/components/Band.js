@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
 
 class Band extends Component {
+
+  handleOnClick = () => {
+    this.props.deleteBand(this.props.id)
+  }
 
   render() {
     return(
       <div>
-        Band Component
-        <span>{this.props.bands}</span>
-        <button onClick={() => this.props.delete(this.props.todo.id)}>DELETE</button>
+        <li>{this.props.name}</li>
+        <button onClick={this.handleOnClick}>
+          Delete
+        </button>
       </div>
-    );
+    )
   }
 };
-
-const mapDispatchToProps = dispatch => {
-  return {delete: band => dispatch({type: 'DELETE_BAND', payload: band})}
-}
 
 export default Band;
